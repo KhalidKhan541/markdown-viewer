@@ -1,0 +1,1 @@
+chrome.action.onClicked.addListener(async tab => { await chrome.scripting.executeScript({target: {tabId: tab.id}, func: () => { const pre = document.querySelector('pre'); if(pre) { let md = pre.textContent; md = md.replace(/^### (.*)/gm, '<h3></h3>'); md = md.replace(/^## (.*)/gm, '<h2></h2>'); md = md.replace(/^# (.*)/gm, '<h1></h1>'); pre.innerHTML = md; } }}); });
